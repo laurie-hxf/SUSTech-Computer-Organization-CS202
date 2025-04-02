@@ -1,7 +1,7 @@
 .include "macro_print_str.asm"
 .data
-dvalue1: .word 0x03
-dvalue2: .word 0x80000000
+dvalue1: .word 0x80000000
+dvalue2: .word 0x03
 .text
 	lw t1, dvalue1
 	lw t2, dvalue2

@@ -1,0 +1,89 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x12b806e80 .scope module, "subtractionTb" "subtractionTb" 2 11;
+ .timescale 0 0;
+v0x12b81e760_0 .var "in1", 2 0;
+v0x12b81e7f0_0 .var "in2", 2 0;
+v0x12b81e880_0 .net "overflow", 0 0, L_0x12b81f6f0;  1 drivers
+v0x12b81e910_0 .net "sum", 2 0, L_0x12b81e9c0;  1 drivers
+S_0x12b806ff0 .scope module, "ua" "subtraction" 2 15, 2 1 0, S_0x12b806e80;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "in1";
+    .port_info 1 /INPUT 3 "in2";
+    .port_info 2 /OUTPUT 3 "result";
+    .port_info 3 /OUTPUT 1 "overflow";
+L_0x12b81ec80 .functor NOT 1, L_0x12b81ebe0, C4<0>, C4<0>, C4<0>;
+L_0x12b81ed30 .functor AND 1, L_0x12b81eb40, L_0x12b81ec80, C4<1>, C4<1>;
+L_0x12b81eee0 .functor NOT 1, L_0x12b81ee40, C4<0>, C4<0>, C4<0>;
+L_0x12b81ef90 .functor AND 1, L_0x12b81ed30, L_0x12b81eee0, C4<1>, C4<1>;
+L_0x12b81f210 .functor NOT 1, L_0x12b81f0c0, C4<0>, C4<0>, C4<0>;
+L_0x12b81f3d0 .functor AND 1, L_0x12b81f210, L_0x12b81f2b0, C4<1>, C4<1>;
+L_0x12b81f5a0 .functor AND 1, L_0x12b81f3d0, L_0x12b81f480, C4<1>, C4<1>;
+L_0x12b81f6f0 .functor OR 1, L_0x12b81ef90, L_0x12b81f5a0, C4<0>, C4<0>;
+v0x12b80d3a0_0 .net *"_ivl_11", 0 0, L_0x12b81ee40;  1 drivers
+v0x12b81daa0_0 .net *"_ivl_12", 0 0, L_0x12b81eee0;  1 drivers
+v0x12b81db50_0 .net *"_ivl_14", 0 0, L_0x12b81ef90;  1 drivers
+v0x12b81dc10_0 .net *"_ivl_17", 0 0, L_0x12b81f0c0;  1 drivers
+v0x12b81dcc0_0 .net *"_ivl_18", 0 0, L_0x12b81f210;  1 drivers
+v0x12b81ddb0_0 .net *"_ivl_21", 0 0, L_0x12b81f2b0;  1 drivers
+v0x12b81de60_0 .net *"_ivl_22", 0 0, L_0x12b81f3d0;  1 drivers
+v0x12b81df10_0 .net *"_ivl_25", 0 0, L_0x12b81f480;  1 drivers
+v0x12b81dfc0_0 .net *"_ivl_26", 0 0, L_0x12b81f5a0;  1 drivers
+v0x12b81e0d0_0 .net *"_ivl_3", 0 0, L_0x12b81eb40;  1 drivers
+v0x12b81e180_0 .net *"_ivl_5", 0 0, L_0x12b81ebe0;  1 drivers
+v0x12b81e230_0 .net *"_ivl_6", 0 0, L_0x12b81ec80;  1 drivers
+v0x12b81e2e0_0 .net *"_ivl_8", 0 0, L_0x12b81ed30;  1 drivers
+v0x12b81e390_0 .net "in1", 2 0, v0x12b81e760_0;  1 drivers
+v0x12b81e440_0 .net "in2", 2 0, v0x12b81e7f0_0;  1 drivers
+v0x12b81e4f0_0 .net "overflow", 0 0, L_0x12b81f6f0;  alias, 1 drivers
+v0x12b81e590_0 .net "result", 2 0, L_0x12b81e9c0;  alias, 1 drivers
+L_0x12b81e9c0 .arith/sub 3, v0x12b81e760_0, v0x12b81e7f0_0;
+L_0x12b81eb40 .part v0x12b81e760_0, 2, 1;
+L_0x12b81ebe0 .part v0x12b81e7f0_0, 2, 1;
+L_0x12b81ee40 .part L_0x12b81e9c0, 2, 1;
+L_0x12b81f0c0 .part v0x12b81e760_0, 2, 1;
+L_0x12b81f2b0 .part v0x12b81e7f0_0, 2, 1;
+L_0x12b81f480 .part L_0x12b81e9c0, 2, 1;
+    .scope S_0x12b806e80;
+T_0 ;
+    %vpi_call 2 18 "$dumpfile", "partise1-2.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 6;
+    %split/vec4 3;
+    %store/vec4 v0x12b81e7f0_0, 0, 3;
+    %store/vec4 v0x12b81e760_0, 0, 3;
+    %pushi/vec4 63, 0, 32;
+T_0.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.1, 5;
+    %jmp/1 T_0.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %delay 10, 0;
+    %load/vec4 v0x12b81e760_0;
+    %load/vec4 v0x12b81e7f0_0;
+    %concat/vec4; draw_concat_vec4
+    %addi 1, 0, 6;
+    %split/vec4 3;
+    %store/vec4 v0x12b81e7f0_0, 0, 3;
+    %store/vec4 v0x12b81e760_0, 0, 3;
+    %jmp T_0.0;
+T_0.1 ;
+    %pop/vec4 1;
+    %delay 10, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "partise1-2.v";
