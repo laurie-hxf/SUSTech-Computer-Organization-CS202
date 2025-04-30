@@ -1,0 +1,86 @@
+$date
+	Wed Apr 23 15:32:39 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module ALU_tb $end
+$var wire 1 ! zero $end
+$var wire 32 " ALUResult [31:0] $end
+$var reg 4 # ALUControl [3:0] $end
+$var reg 2 $ ALUSrc [1:0] $end
+$var reg 32 % ReadData1 [31:0] $end
+$var reg 32 & ReadData2 [31:0] $end
+$var reg 32 ' imm32 [31:0] $end
+$scope module uut $end
+$var wire 4 ( ALUControl [3:0] $end
+$var wire 2 ) ALUSrc [1:0] $end
+$var wire 32 * ReadData1 [31:0] $end
+$var wire 32 + ReadData2 [31:0] $end
+$var wire 32 , imm32 [31:0] $end
+$var wire 1 ! zero $end
+$var wire 32 - operand2 [31:0] $end
+$var reg 32 . ALUResult [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1111 .
+b101 -
+b11 ,
+b101 +
+b1010 *
+b0 )
+b10 (
+b11 '
+b101 &
+b1010 %
+b0 $
+b10 #
+b1111 "
+0!
+$end
+#10
+b101 "
+b101 .
+b110 #
+b110 (
+#20
+1!
+b0 "
+b0 .
+b0 #
+b0 (
+#30
+0!
+b1111 "
+b1111 .
+b1 #
+b1 (
+#40
+b1101 "
+b1101 .
+b11 -
+b1 $
+b1 )
+b10 #
+b10 (
+#50
+1!
+b1010 -
+b0 "
+b0 .
+b0 $
+b0 )
+b110 #
+b110 (
+b1010 &
+b1010 +
+#60
