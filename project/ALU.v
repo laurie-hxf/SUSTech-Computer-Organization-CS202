@@ -5,19 +5,11 @@ module ALU(
     input  [1:0]  ALU_Src,
     input  [31:0] ReadData1,
     input  [31:0] ReadData2,
+    input [2:0] fun3,       // 功能码3
     input  [31:0] imm32,
     output reg [31:0] ALU_Result,
     output reg zero  
 );
-wire [3:0] ALU_Op;
-wire [6:0] fun7;
-wire [2:0] fun3;
-    ALU_Control control (
-        .ALU_Op(ALU_Op),
-        .fun7(fun7),
-        .fun3(fun3),
-        .ALU_Control(ALU_Control)
-    );
 
 wire[31:0] operand2;
 assign operand2 = (ALU_Src == 2'b00) ? ReadData2 :
@@ -42,7 +34,7 @@ always @* begin
         default: ALU_Result = 32'b0;
     endcase
     if(ALU_Control==`ALU_OP_B)begin
-            case (func3)
+            case (fun3)
                 3'b000: zero= (ALU_Result==32'b0)?1'b1:1'b0;
                 3'b001: zero= (ALU_Result!=32'b0)?1'b1:1'b0;
                 3'b100: zero= ($signed(ReadData1) < $signed(operand2))?1'b1:1'b0;

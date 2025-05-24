@@ -31,4 +31,20 @@
 `define ALU_Control_J 4'b1100
 
 
+`define H_SYNC 10'd96
+`define H_BACK 10'd40
+`define H_LEFT 10'd8
+`define H_ACTIVE 10'd640
+`define H_RIGHT 10'd8
+`define H_FRONT 10'd8
+`define H_CYCLE 10'd800
+
+`define V_SYNC 10'd2
+`define V_BACK 10'd25
+`define V_TOP 10'd8
+`define V_ACTIVE 10'd480
+`define V_BOTTOM 10'd8
+`define V_FRONT 10'd2
+`define V_CYCLE 10'd525
+
 
